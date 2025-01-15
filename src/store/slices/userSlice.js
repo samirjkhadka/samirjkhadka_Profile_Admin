@@ -124,7 +124,7 @@ export const getUser = () => async (dispatch) => {
   dispatch(userSlice.actions.loadUserRequest());
   try {
     const { data } = await axios.get(
-      "https://samirjkhadka-profile-backend.onrender.com/api/v1/user/portfolio/me",
+      "https://samirjkhadka-profile-backend.onrender.com/api/v1/user/portfolio/me/",
       { withCredentials: true }
     );
     dispatch(userSlice.actions.loadUserSuccess(data.user));

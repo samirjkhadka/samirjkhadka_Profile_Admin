@@ -15,34 +15,37 @@ const userSlice = createSlice({
     loginRequest(state, action) {
       state.loading = true;
       state.isAuthenticated = false;
-      state.error = null;
       state.user = {};
+      state.error = null;
     },
     loginSuccess(state, action) {
       state.loading = false;
       state.isAuthenticated = true;
-      state.error = null;
       state.user = action.payload;
+      state.error = null;
     },
     loginFailed(state, action) {
-      (state.loading = false),
-        (state.isAuthenticated = false),
-        (state.user = {});
+      state.loading = false;
+      state.isAuthenticated = false;
+      state.user = {};
       state.error = action.payload;
     },
     logoutSuccess(state, action) {
-      (state.loading = false), (state.isAuthenticated = false);
+      state.loading = false;
+      state.isAuthenticated = false;
       state.user = {};
       state.error = null;
       state.message = action.payload;
     },
     logoutFailed(state, action) {
-      (state.loading = false), (state.isAuthenticated = state.isAuthenticated);
+      state.loading = false;
+      state.isAuthenticated = state.isAuthenticated;
       state.user = state.user;
       state.error = action.payload;
     },
     loadUserRequest(state, action) {
-      (state.loading = true), (state.isAuthenticated = false);
+      state.loading = true;
+      state.isAuthenticated = false;
       state.user = {};
       state.error = null;
     },
@@ -60,7 +63,7 @@ const userSlice = createSlice({
     },
     updatePasswordRequest(state, action) {
       state.loading = true;
-      state.isUpdate = false;
+      state.isUpdated = false;
       state.message = null;
       state.error = null;
     },
@@ -100,7 +103,8 @@ const userSlice = createSlice({
       state.message = null;
     },
     clearAllErrors(state, action) {
-      (state.error = null), (state = state.user);
+      state.error = null;
+      state = state.user;
     },
   },
 });
@@ -124,7 +128,8 @@ export const getUser = () => async (dispatch) => {
   dispatch(userSlice.actions.loadUserRequest());
   try {
     const { data } = await axios.get(
-      "https://samirjkhadka-profile-backend.onrender.com/api/v1/user/portfolio/me/",
+      "https://samirjkhadka-profile-backend.onrender.com/api/v1/user/me",
+      // "http://localhost:4000/api/v1/user/me",
       { withCredentials: true }
     );
     dispatch(userSlice.actions.loadUserSuccess(data.user));
@@ -140,8 +145,8 @@ export const logout = () => async (dispatch) => {
       "https://samirjkhadka-profile-backend.onrender.com/api/v1/user/logout",
       { withCredentials: true }
     );
-    dispatch(userSlice.actions.logoutSuccess(data.message))
-    dispatch(userSlice.actions.clearAllErrors())
+    dispatch(userSlice.actions.logoutSuccess(data.message));
+    dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
     dispatch(userSlice.actions.logoutFailed(error.response.data.message));
   }

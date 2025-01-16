@@ -74,9 +74,10 @@ export const getAllSoftwareApplications = () => async (dispatch) => {
   );
   try {
     const response = await axios.get(
-      "https://samirjkhadka-profile-backend.onrender.com/api/v1/softwareapplication/getAllApplications",
+      "https://samirjkhadka-profile-backend.onrender.com/api/v1/softwareApplication/getAllApplications",
       { withCredentials: true }
     );
+    console.log(response);
     dispatch(
       softwareApplicationSlice.actions.getAllsoftwareApplicationsSuccess(
         response.data.softwareApplications
@@ -98,7 +99,7 @@ export const addNewSoftwareApplication = (data) => async (dispatch) => {
   );
   try {
     const response = await axios.post(
-      "https://samirjkhadka-profile-backend.onrender.com/api/v1/softwareapplication/addApplication",
+      "https://mern-stack-portfolio-backend-code.onrender.com/api/v1/softwareapplication/addApplication",
       data,
       {
         withCredentials: true,
@@ -126,7 +127,7 @@ export const deleteSoftwareApplication = (id) => async (dispatch) => {
   );
   try {
     const response = await axios.delete(
-      `https://samirjkhadka-profile-backend.onrender.com/api/v1/softwareapplication/deleteApplication/${id}`,
+      `https://mern-stack-portfolio-backend-code.onrender.com/api/v1/softwareapplication/deleteApplication/${id}`,
       {
         withCredentials: true,
       }

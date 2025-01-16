@@ -24,13 +24,13 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUser());
+    // dispatch(getUser());
     dispatch(getAllSkills());
     dispatch(getAllSoftwareApplications());
     dispatch(getAllTimeline());
     dispatch(getAllMessages());
     dispatch(getAllProjects());
-  }, []);
+  }, [dispatch]);
   return (
     <Router>
       <Routes>

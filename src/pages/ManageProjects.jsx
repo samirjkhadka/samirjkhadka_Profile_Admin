@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 const ManageProjects = () => {
   return (
-    <div>ManageProjects</div>
+    <div>Manage Projects</div>
   )
 }
 

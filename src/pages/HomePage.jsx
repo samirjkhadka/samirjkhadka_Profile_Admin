@@ -3,7 +3,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { clearAllUserErrors, logout } from "@/store/slices/userSlice";
+import { logout, clearAllUserErrors } from "@/store/slices/userSlice";
 import { TooltipContent } from "@radix-ui/react-tooltip";
 import {
   FolderGit,
@@ -38,18 +38,20 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
-    toast.success("Logout Successfully");
+    toast.success("You have been Logged Out successfully!");
   };
   const navigateTo = useNavigate();
   useEffect(() => {
     if (error) {
+      console.log(error);
       toast.error(error);
       dispatch(clearAllUserErrors());
     }
+
     if (!isAuthenticated) {
       navigateTo("/login");
     }
-  }, [dispatch, isAuthenticated, error, navigateTo]);
+  }, [dispatch, error, isAuthenticated, navigateTo]);
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 hidden w-14 flex-col border-r bg-background sm:flex z-50">
@@ -371,7 +373,7 @@ const HomePage = () => {
           </h1>
         </div>
       </header>
-      {() => {
+      {(() => {
         switch (active) {
           case "Dashboard":
             return <Dashboard />;
@@ -390,7 +392,7 @@ const HomePage = () => {
           default:
             return <Dashboard />;
         }
-      }}
+      })()}
     </div>
   );
 };

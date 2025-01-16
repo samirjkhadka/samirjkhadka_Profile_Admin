@@ -88,7 +88,7 @@ export const getAllProjects = () => async (dispatch) => {
   dispatch(projectSlice.actions.getAllProjectsRequest());
   try {
     const response = await axios.get(
-      "https://samirjkhadka-profile-backend.onrender.com/api/v1/project/getAllProjects",
+      "https://samirjkhadka-profile-backend.onrender.com/api/v1/projects/getAllProjects",
       { withCredentials: true }
     );
     dispatch(
@@ -106,7 +106,7 @@ export const addNewProject = (data) => async (dispatch) => {
   dispatch(projectSlice.actions.addNewProjectRequest());
   try {
     const response = await axios.post(
-      "https://samirjkhadka-profile-backend.onrender.com/api/v1/project/addProject",
+      "https://samirjkhadka-profile-backend.onrender.com/api/v1/projects/addProject",
       data,
       {
         withCredentials: true,
@@ -125,7 +125,7 @@ export const deleteProject = (id) => async (dispatch) => {
   dispatch(projectSlice.actions.deleteProjectRequest());
   try {
     const response = await axios.delete(
-      `https://samirjkhadka-profile-backend.onrender.com/api/v1/project/deleteProject/${id}`,
+      `https://samirjkhadka-profile-backend.onrender.com/api/v1/projects/deleteProject/${id}`,
       {
         withCredentials: true,
       }
@@ -142,7 +142,7 @@ export const updateProject = (id, newData) => async (dispatch) => {
   dispatch(projectSlice.actions.updateProjectRequest());
   try {
     const response = await axios.put(
-      `https://samirjkhadka-profile-backend.onrender.com/api/v1/project/updateProject/${id}`,
+      `https://samirjkhadka-profile-backend.onrender.com/api/v1/projects/updateProject/${id}`,
       newData,
       {
         withCredentials: true,

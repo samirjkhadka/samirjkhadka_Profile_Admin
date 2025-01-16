@@ -1,8 +1,6 @@
-import React from 'react'
-
 const AddProject = () => {
   return (
-    <div>AddProject</div>
+    <div>Add Project</div>
   )
 }
 

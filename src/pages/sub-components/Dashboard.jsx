@@ -57,7 +57,7 @@ const Dashboard = () => {
     error: appError,
     message: appMessage,
   } = useSelector((state) => state.softwareApplications);
-  console.log(softwareApplications);
+
   const {
     timeline,
     loading: timelineLoading,

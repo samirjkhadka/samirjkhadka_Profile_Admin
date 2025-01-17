@@ -107,6 +107,7 @@ export const addNewProject = (data) => async (dispatch) => {
   try {
     const response = await axios.post(
       "https://samirjkhadka-profile-backend.onrender.com/api/v1/projects/addProject",
+      // "http://localhost:4000/api/v1/projects/addProject",
       data,
       {
         withCredentials: true,

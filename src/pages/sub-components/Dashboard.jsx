@@ -57,7 +57,6 @@ const Dashboard = () => {
     error: appError,
     message: appMessage,
   } = useSelector((state) => state.softwareApplications);
-
   const {
     timeline,
     loading: timelineLoading,
@@ -109,7 +108,6 @@ const Dashboard = () => {
     timelineError,
     timelineLoading,
     timelineMessage,
-    projectError,
   ]);
 
   return (
@@ -304,7 +302,7 @@ const Dashboard = () => {
                         ) : (
                           <TableRow>
                             <TableCell className="text-3xl overflow-y-hidden">
-                              You have not added any Software Applications.
+                              You have not added any Softwares.
                             </TableCell>
                           </TableRow>
                         )}

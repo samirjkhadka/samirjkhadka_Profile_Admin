@@ -61,18 +61,22 @@ const Login = () => {
               />
             </div>
             <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label>Password</Label>
-                <Link to="/password/forgot" className="ml-auto inline-block text-sm underline">
-                  Forgot Your Password
-                </Link>
-              </div>
+              <Label>Password</Label>
+
               <Input
                 type="password"
                 placeholder="*******"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <div className="flex items-center">
+                <Link
+                  to="/password/forgot"
+                  className="ml-auto inline-block text-sm underline"
+                >
+                  Forgot Your Password
+                </Link>
+              </div>
             </div>
             {loading ? (
               <SpecialLoadingButton content={"Loggin In"} />

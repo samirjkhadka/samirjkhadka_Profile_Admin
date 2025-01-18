@@ -319,13 +319,13 @@ const HomePage = () => {
               <Link
                 href="#"
                 className={`flex items-center gap-4 px-2.5 ${
-                  active === " Add Timeline"
+                  active === "Add Timeline"
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }
               `}
                 onClick={() => {
-                  setActive(" Add Timeline");
+                  setActive("Add Timeline");
                 }}
               >
                 <History className="h-5 w-5" />
@@ -383,7 +383,7 @@ const HomePage = () => {
             return <AddSkill />;
           case "Add Software Applications":
             return <AddSoftwareApplications />;
-          case " Add Timeline":
+          case "Add Timeline":
             return <AddTimeline />;
           case "Messages":
             return <Messages />;
